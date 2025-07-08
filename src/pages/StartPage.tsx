@@ -4,7 +4,7 @@ import { useState } from 'react'
 import PodcastSearch from '../components/PodcastSearch'
 
 export default function StartPage() {
-	const [podcastListData, setPodcastListData] = useState(JSON.parse(localStorage.getItem('podcast-list') || '[]'))
+	const [podcastListData, setPodcastListData] = useState(JSON.parse(sessionStorage.getItem('podcast-list') || '[]'))
 
 	return (
 		<>

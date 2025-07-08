@@ -13,7 +13,7 @@ export default function PodcastSearch({ updateData }) {
 			const fetchedData = data.results
 
 			updateData(fetchedData)
-			localStorage.setItem('podcast-list', JSON.stringify(fetchedData))
+			sessionStorage.setItem('podcast-list', JSON.stringify(fetchedData))
 		} catch (error) {
 			console.error(error)
 		}
