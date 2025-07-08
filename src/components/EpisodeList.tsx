@@ -11,6 +11,7 @@ export default function EpisodeList(props) {
 			'@_isPermaLink': string
 			'#text': string
 		}
+		image: string
 	}
 
 	return (
@@ -18,11 +19,14 @@ export default function EpisodeList(props) {
 			<h3>EpisodeList</h3>
 			{episodes?.length > 0 && (
 				<ul className="list-episodes">
-					{episodes.map(({ title, description, pubDate, guid }: EpisodeListType) => (
+					{episodes.map(({ title, description, pubDate, guid, image }: EpisodeListType) => (
 						<li className={guid?.['#text']}>
-							<small>{pubDate}</small>
-							<h4>{title}</h4>
-							{parse(description)}
+							{image && <img src={image} width="150" alt={title} />}
+							<div>
+								<small>{pubDate}</small>
+								<h4>{title}</h4>
+								<div className="desc">{parse(description)}</div>
+							</div>
 						</li>
 					))}
 				</ul>
