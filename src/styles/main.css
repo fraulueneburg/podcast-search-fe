@@ -72,18 +72,18 @@ ul[class*='list-'] {
 	padding: 0;
 	margin: 0;
 
-	li {
+	> li {
 		display: grid;
 		gap: 1rem;
 		grid-template-columns: auto 1fr;
 	}
 
-	li:not(:last-child) {
+	> li:not(:last-child) {
 		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 	}
 
-	li:not(:has(> a)),
-	li > a {
+	> li:not(:has(> a)),
+	> li > a {
 		padding: 1rem 0;
 	}
 }
