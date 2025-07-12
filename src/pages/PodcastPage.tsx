@@ -2,12 +2,12 @@ import { useLoaderData } from '@tanstack/react-router'
 import { podcastDetailRoute } from '../routes/routes'
 import EpisodeList from '../components/EpisodeList'
 import EpisodeSearch from '../components/EpisodeSearch'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 export default function PodcastPage() {
 	const data = useLoaderData({ from: podcastDetailRoute.id })
 
-	const { artistName, artworkUrl600, trackCount, trackName } = data.info
+	const { artistName, artworkUrl600, collectionId, trackCount, trackName } = data.info
 	const { episodes } = data
 
 	const [filteredEpisodes, setFilteredEpisodes] = useState(episodes)
@@ -37,7 +37,7 @@ export default function PodcastPage() {
 				</header>
 			</section>
 			<EpisodeSearch submitAction={startSearch} />
-			<EpisodeList data={filteredEpisodes} />
+			<EpisodeList podcastId={collectionId} data={filteredEpisodes} />
 		</>
 	)
 }
