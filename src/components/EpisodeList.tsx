@@ -21,7 +21,7 @@ export default function EpisodeList(props) {
 			{episodes?.length > 0 && (
 				<ul className="list-episodes">
 					{episodes.map(({ title, description, pubDate, guid, image, duration, audioURL }: EpisodeType) => (
-						<li key={guid?.['#text']}>
+						<li key={guid}>
 							<div>{image && <img src={image} width="150" alt={title} />}</div>
 							<div>
 								<small>
