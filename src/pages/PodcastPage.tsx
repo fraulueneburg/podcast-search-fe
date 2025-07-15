@@ -2,6 +2,7 @@ import { useLoaderData } from '@tanstack/react-router'
 import { podcastDetailRoute } from '../routes/routes'
 import EpisodeList from '../components/EpisodeList'
 import { useMemo, useState } from 'react'
+import type { EpisodeType } from '../types/episode'
 
 export default function PodcastPage() {
 	const data = useLoaderData({ from: podcastDetailRoute.id })
@@ -13,11 +14,11 @@ export default function PodcastPage() {
 	const filteredEpisodes = useMemo(() => {
 		const queryLc = query.toLowerCase()
 		return episodes.filter(
-			(elem) => elem.title.toLowerCase().includes(queryLc) || elem.description.toLowerCase().includes(queryLc)
+			(elem: EpisodeType) => elem.title.toLowerCase().includes(queryLc) || elem.description.toLowerCase().includes(queryLc)
 		)
 	}, [episodes, query])
 
-	const handleStartSearch = (event) => {
+	const handleStartSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
 		event.preventDefault()
 		setQuery(event.target.value)
 	}

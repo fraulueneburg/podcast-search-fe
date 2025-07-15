@@ -1,6 +1,12 @@
 import Episode from './Episode'
+import type { EpisodeType } from '../types/episode'
 
-export default function EpisodeList(props) {
+type EpisodeListProps = {
+	data: EpisodeType[]
+	podcastId: string
+}
+
+export default function EpisodeList(props: EpisodeListProps) {
 	const episodes = props.data
 	const { podcastId } = props
 
@@ -9,7 +15,7 @@ export default function EpisodeList(props) {
 			<h3>EpisodeList</h3>
 			{episodes?.length > 0 && (
 				<ul className="list-episodes">
-					{episodes.map((elem) => (
+					{episodes.map((elem: EpisodeType) => (
 						<li key={elem.guid}>
 							<Episode data={elem} podcastId={podcastId} />
 						</li>
