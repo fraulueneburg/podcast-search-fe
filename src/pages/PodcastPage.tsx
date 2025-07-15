@@ -1,29 +1,25 @@
 import { useLoaderData } from '@tanstack/react-router'
 import { podcastDetailRoute } from '../routes/routes'
 import EpisodeList from '../components/EpisodeList'
-import EpisodeSearch from '../components/EpisodeSearch'
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 
 export default function PodcastPage() {
 	const data = useLoaderData({ from: podcastDetailRoute.id })
 
 	const { artistName, artworkUrl600, collectionId, trackCount, trackName } = data.info
 	const { episodes } = data
+	const [query, setQuery] = useState('')
 
-	const [filteredEpisodes, setFilteredEpisodes] = useState(episodes)
+	const filteredEpisodes = useMemo(() => {
+		const queryLc = query.toLowerCase()
+		return episodes.filter(
+			(elem) => elem.title.toLowerCase().includes(queryLc) || elem.description.toLowerCase().includes(queryLc)
+		)
+	}, [episodes, query])
 
-	const startSearch = (event) => {
+	const handleStartSearch = (event) => {
 		event.preventDefault()
-
-		const inputTerm = event.target.elements['ep-search-term'].value.trim()
-
-		if (inputTerm.length > 0) {
-			setFilteredEpisodes(
-				episodes.filter((obj) =>
-					Object.values(obj).some((value) => String(value).toLowerCase().includes(inputTerm.toLowerCase()))
-				)
-			)
-		}
+		setQuery(event.target.value)
 	}
 
 	return (
@@ -36,7 +32,15 @@ export default function PodcastPage() {
 					<p>{trackCount} episodes</p>
 				</header>
 			</section>
-			<EpisodeSearch submitAction={startSearch} />
+			<h3>search in episodes</h3>
+			<input
+				type="search"
+				onChange={handleStartSearch}
+				aria-label="filter episodes"
+				placeholder="filter episodes"
+				id="episode-query"
+				name="episode-query"
+			/>
 			<EpisodeList podcastId={collectionId} data={filteredEpisodes} />
 		</>
 	)
