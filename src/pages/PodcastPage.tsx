@@ -19,7 +19,6 @@ export default function PodcastPage() {
 	}, [episodes, query])
 
 	const handleStartSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
-		event.preventDefault()
 		setQuery(event.target.value)
 	}
 
