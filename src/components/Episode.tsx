@@ -1,15 +1,7 @@
 import parse from 'html-react-parser'
 import AudioPlayer from './AudioPlayer'
 
-type EpisodeType = {
-	title: string
-	description: string
-	pubDate: string
-	guid: string
-	audioURL: string
-	image: string
-	duration: string
-}
+import type { EpisodeType } from '../types/episode'
 
 type EpisodeProps = {
 	data: EpisodeType
