@@ -12,20 +12,43 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-#root {
-	max-width: 1200px;
-	width: 100%;
-	padding: 0 1.5rem 3rem;
-	margin: 0 auto;
-}
-
 body {
 	background: url(../img/bg-noise-200-dark.png) repeat top left,
 		radial-gradient(179.23% 78.82% at 0% 0%, var(--brand-light) 0%, var(--brand-dark) 100%);
 	background-repeat: repeat, no-repeat;
-	background-size: auto, 100vw 100vh;
+	background-size: auto, 100% 100vh;
 	background-attachment: scroll, fixed;
 	margin: 0;
 	display: flex;
-	min-height: 100vh;
+	height: 100vh;
+}
+
+#root {
+	display: grid;
+	grid-template-rows: 1fr auto;
+	height: 100vh;
+	width: 100%;
+
+	.scrollable-content {
+		height: auto;
+		overflow: auto;
+		padding: 0 1.5rem 3rem;
+
+		> {
+			header,
+			main {
+				margin-inline: auto;
+				max-width: 1200px;
+				width: 100%;
+			}
+
+			main {
+				margin-top: 1.5rem;
+
+				@media (min-width: 1024px) {
+					margin-top: 3rem;
+				}
+			}
+		}
+	}
 }
