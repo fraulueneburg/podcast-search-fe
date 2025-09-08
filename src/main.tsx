@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { RouterProvider } from '@tanstack/react-router'
 import { router } from './router'
-import './styles/main.css'
+import './assets/scss/styles.scss'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
 	<React.StrictMode>

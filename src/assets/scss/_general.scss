@@ -1,0 +1,28 @@
+:root {
+	font-family: var(--font-family);
+	line-height: 1.5;
+	font-weight: 400;
+	font-size: 1rem;
+
+	color: var(--color);
+
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+	max-width: 1200px;
+	width: 100%;
+	padding: 0 1.5rem;
+	margin: 0 auto;
+}
+
+body {
+	background: radial-gradient(179.23% 78.82% at 0% 0%, hsl(243, 12%, 50%) 0%, hsl(257, 21%, 29%) 100%);
+	margin: 0;
+	display: flex;
+	min-width: 320px;
+	min-height: 100vh;
+}

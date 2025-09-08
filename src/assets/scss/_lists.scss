@@ -1,0 +1,50 @@
+ul[class*='list-'] {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+
+	> li {
+		display: grid;
+		gap: 1rem;
+		grid-template-columns: auto 1fr;
+	}
+
+	> li:not(:last-child) {
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	> li:not(:has(> a)),
+	> li > a {
+		padding: 1rem 0;
+
+		&:first-child {
+			padding-top: 0;
+		}
+	}
+}
+
+.list-podcasts {
+	display: grid;
+	gap: 0 1rem;
+	grid-template-columns: 1fr 1fr;
+
+	li a {
+		color: var(--color);
+		display: flex;
+		flex-direction: row;
+		gap: 1rem;
+
+		h3,
+		p {
+			margin: 0;
+		}
+
+		img {
+			height: min-content;
+		}
+	}
+}
+
+.list-episodes .desc {
+	word-break: break-word;
+}
