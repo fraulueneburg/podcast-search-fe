@@ -12,7 +12,6 @@ export default function EpisodeList(props: EpisodeListProps) {
 
 	return (
 		<>
-			<h3>EpisodeList</h3>
 			{episodes?.length > 0 && (
 				<ul className="list-episodes">
 					{episodes.map((elem: EpisodeType) => (

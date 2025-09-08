@@ -12,22 +12,30 @@ export default function Episode({ data, podcastId }: EpisodeProps) {
 	const { title, description, pubDate, guid, audioURL, image, duration } = data
 	return (
 		<>
-			<div>{image && <img src={image} width="150" alt={title} />}</div>
-			<div>
-				<small>
-					{pubDate} | {duration}
-				</small>
-				<h4>
-					<a
-						title="open episode in apple podcasts"
-						target="_blank"
-						href={`https://podcasts.apple.com/podcast/id${podcastId}?i=${guid}`}>
-						{title}
-					</a>
-				</h4>
+			<header>
+				<div className="text">
+					<h2 className="ep-title">{title}</h2>
+					<small className="ep-date">{pubDate}</small>
+				</div>
+				<img src={image || ''} width="60" height="60" alt={image ? title : ''} />
+			</header>
+
+			<div className="ep-desc">{parse(description)}</div>
+
+			<footer>
 				<AudioPlayer url={audioURL} />
-				<div className="desc">{parse(description)}</div>
-			</div>
+				<p className="ep-duration">{duration}</p>
+				<nav className="nav-actions" aria-label="episode actions">
+					<ul>
+						<li>save episode</li>
+						<li>
+							<a target="_blank" href={`https://podcasts.apple.com/podcast/id${podcastId}?i=${guid}`}>
+								open episode in apple podcasts
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</footer>
 		</>
 	)
 }
