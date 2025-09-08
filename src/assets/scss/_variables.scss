@@ -1,5 +1,11 @@
 :root {
 	--border-width: 1px;
 	--color: #fcfcfc;
+	--color-inverted: #161616;
 	--font-family: 'Inter', Avenir, Helvetica, Arial, sans-serif;
+
+	--input-bg: var(--color);
+	--input-color: var(--color-inverted);
+
+	--input-min-width: 46px;
 }

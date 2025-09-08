@@ -26,7 +26,7 @@ ul[class*='list-'] {
 .list-podcasts {
 	display: grid;
 	gap: 0 1rem;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr;
 
 	li a {
 		color: var(--color);

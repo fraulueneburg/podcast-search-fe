@@ -1,5 +1,7 @@
 import { API_URL } from '../config'
 
+import { MagnifyingGlassIcon as IconSearch } from '@phosphor-icons/react'
+
 export default function PodcastSearch({ updateData }) {
 	const startSearch = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault()
@@ -21,17 +23,11 @@ export default function PodcastSearch({ updateData }) {
 
 	return (
 		<>
-			<form onSubmit={startSearch}>
-				<p className="pc-name-desc">Find a podcast you want to search through</p>
-				<input
-					aria-label="podcast name"
-					placeholder="podcast name"
-					id="pc-name"
-					name="pc-name"
-					aria-describedby="pc-name-desc"
-					type="search"
-				/>
-				<button type="submit">find podcast</button>
+			<form onSubmit={startSearch} className="podcast-search-form">
+				<input aria-label="podcast name" placeholder="Find podcasts by name …" id="pc-name" name="pc-name" type="search" />
+				<button type="submit" className="icon-only" aria-label="find podcast">
+					<IconSearch aria-hidden="true" weight="bold" />
+				</button>
 			</form>
 		</>
 	)

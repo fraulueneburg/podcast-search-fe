@@ -2,8 +2,40 @@ form {
 	margin-bottom: 2rem;
 }
 
-input,
-button {
-	font-size: 1.5rem;
-	padding: 0.5rem;
+input {
+	background-color: var(--input-bg);
+	border: none;
+	border-radius: calc(var(--input-min-width) / 2);
+	color: var(--input-color);
+	font-size: 1.2rem;
+	height: var(--input-min-width);
+	padding: 0.75rem calc(var(--input-min-width) / 2);
+}
+
+form {
+	button.icon-only {
+		border: none;
+		background-color: transparent;
+	}
+}
+
+.podcast-search-form {
+	position: relative;
+
+	input {
+		width: 100%;
+	}
+
+	button {
+		border-radius: 50%;
+		position: absolute;
+		height: 100%;
+		right: 0;
+		padding-right: 1rem;
+	}
+
+	svg {
+		height: 24px;
+		width: 24px;
+	}
 }
