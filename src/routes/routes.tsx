@@ -10,6 +10,17 @@ export const indexRoute = new Route({
 	component: StartPage,
 })
 
+export const searchRoute = new Route({
+	getParentRoute: () => indexRoute,
+	path: '$searchTerm',
+	component: StartPage,
+	loader: async ({ params }) => {
+		const res = await fetch(`${API_URL}/search/${params.searchTerm}`)
+		if (!res.ok) throw new Error('Failed to load search result page')
+		return res.json()
+	},
+})
+
 export const podcastRoute = new Route({
 	getParentRoute: () => rootRoute,
 	path: '/podcast',
