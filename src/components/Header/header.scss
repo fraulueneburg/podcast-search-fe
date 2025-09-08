@@ -1,0 +1,16 @@
+.page-header {
+	border-bottom: var(--border-width) solid currentColor;
+	padding-block: 1.5rem 0.75rem;
+	margin-bottom: 1.5rem;
+
+	a {
+		&,
+		&:hover,
+		&:focus,
+		&:active {
+			color: var(--color);
+			font-weight: 600;
+			font-size: 0.85rem;
+		}
+	}
+}
