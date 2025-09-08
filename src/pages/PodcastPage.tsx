@@ -1,3 +1,4 @@
+import './_podcast.scss'
 import { useLoaderData } from '@tanstack/react-router'
 import { podcastDetailRoute } from '../routes/routes'
 import EpisodeList from '../components/EpisodeList'
@@ -24,17 +25,17 @@ export default function PodcastPage() {
 
 	return (
 		<>
-			<section style={{ display: 'flex', gap: '1rem' }}>
+			<section className="podcast-details">
 				<img src={artworkUrl600} width={250} height={250} />
 				<header>
 					<h1>{trackName}</h1>
-					<p>{artistName}</p>
-					<p>{trackCount} episodes</p>
+					<p className="artist-name">{artistName}</p>
+					<p className="track-count">{trackCount} episodes</p>
 				</header>
 			</section>
-			<h3>search in episodes</h3>
 			<input
 				type="search"
+				className="episode-filter"
 				onChange={handleStartSearch}
 				aria-label="filter episodes"
 				placeholder="filter episodes"

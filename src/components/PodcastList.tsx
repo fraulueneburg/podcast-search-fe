@@ -1,41 +1,31 @@
 import { Link } from '@tanstack/react-router'
-import { MinusCircleIcon as IconBlock, HeartIcon as IconFav } from '@phosphor-icons/react'
 import { podcastDetailRoute } from '../routes/routes'
 
-export default function PodcastList(props) {
-	const { data } = props
+type PodcastProps = {
+	artistName: string
+	artworkUrl600: string
+	primaryGenreName: string
+	trackCount: number
+	trackId: number
+	trackName: string
+}
 
-	type PodcastProps = {
-		artistName: string
-		artworkUrl100: string
-		primaryGenreName: string
-		trackCount: number
-		trackId: number
-		trackName: string
-	}
+export default function PodcastList(props: { data: PodcastProps[] }) {
+	const { data } = props
 
 	return (
 		<>
-			<h2>Podcast List</h2>
 			{data?.length > 0 ? (
 				<ul className="list-podcasts">
-					{data.map(({ artistName, artworkUrl100, primaryGenreName, trackCount, trackId, trackName }: PodcastProps) => (
+					{data.map(({ artistName, artworkUrl600, primaryGenreName, trackCount, trackId, trackName }: PodcastProps) => (
 						<li key={trackId}>
 							<Link to={podcastDetailRoute.id} params={{ podcastId: trackId.toString() }}>
-								<img src={artworkUrl100} width="100" height="100" />
-								<div>
-									<h3>{trackName}</h3>
-									<p>
-										<em>{artistName}</em>
-										<br />
-										{trackCount} episodes
-										<br />
-										<small>{primaryGenreName}</small>
-									</p>
-									<IconFav /> <small>mark as favourite</small>
-									<br />
-									<IconBlock /> <small>hide this podcast</small>
+								<div className="text">
+									<h2 className="result-name">{trackName}</h2>
+									<p className="artist-name">{artistName}</p>
+									<p className="track-count">{trackCount} episodes</p>
 								</div>
+								<img src={artworkUrl600} width="120" height="120" />
 							</Link>
 						</li>
 					))}

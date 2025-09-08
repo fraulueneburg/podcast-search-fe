@@ -1,4 +1,5 @@
 import parse from 'html-react-parser'
+import { BookmarkSimpleIcon as IconSaveEpisode, ApplePodcastsLogoIcon as IconApplePodcast } from '@phosphor-icons/react'
 import AudioPlayer from './AudioPlayer'
 
 import type { EpisodeType } from '../types/episode'
@@ -12,22 +13,36 @@ export default function Episode({ data, podcastId }: EpisodeProps) {
 	const { title, description, pubDate, guid, audioURL, image, duration } = data
 	return (
 		<>
-			<div>{image && <img src={image} width="150" alt={title} />}</div>
-			<div>
-				<small>
-					{pubDate} | {duration}
-				</small>
-				<h4>
-					<a
-						title="open episode in apple podcasts"
-						target="_blank"
-						href={`https://podcasts.apple.com/podcast/id${podcastId}?i=${guid}`}>
-						{title}
-					</a>
-				</h4>
+			<header>
+				<div className="text">
+					<h2 className="ep-title">{title}</h2>
+					<small className="ep-date">{pubDate}</small>
+				</div>
+				<img src={image || ''} width="60" height="60" alt={image ? title : ''} />
+			</header>
+
+			<div className="ep-desc">{parse(description)}</div>
+
+			<footer>
 				<AudioPlayer url={audioURL} />
-				<div className="desc">{parse(description)}</div>
-			</div>
+				{duration && <p className="ep-duration">{duration}</p>}
+				<nav className="nav-actions" aria-label="episode actions">
+					<ul>
+						<li>
+							<a href="" title="save episode"></a>
+							<IconSaveEpisode />
+						</li>
+						<li>
+							<a
+								target="_blank"
+								href={`https://podcasts.apple.com/podcast/id${podcastId}?i=${guid}`}
+								title="open episode in apple podcasts">
+								<IconApplePodcast />
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</footer>
 		</>
 	)
 }
