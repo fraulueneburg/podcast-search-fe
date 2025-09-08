@@ -6,7 +6,6 @@ export const rootRoute = new RootRoute({
 		<>
 			<Header />
 			<main>
-				<h1>Quickly find episodes from your favourite shows</h1>
 				<Outlet />
 			</main>
 		</>

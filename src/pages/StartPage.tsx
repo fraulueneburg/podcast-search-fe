@@ -8,6 +8,10 @@ export default function StartPage() {
 
 	return (
 		<>
+			<h1>
+				Quickly find episodes <br />
+				from your favourite shows
+			</h1>
 			<PodcastSearch updateData={setPodcastListData} />
 			<PodcastList data={podcastListData} />
 		</>
