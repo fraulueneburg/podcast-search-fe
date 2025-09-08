@@ -1,8 +1,8 @@
 :root {
 	font-family: var(--font-family);
-	line-height: 1.5;
 	font-weight: 400;
 	font-size: 1rem;
+	line-height: 1.4;
 
 	color: var(--color);
 
@@ -15,14 +15,17 @@
 #root {
 	max-width: 1200px;
 	width: 100%;
-	padding: 0 1.5rem;
+	padding: 0 1.5rem 3rem;
 	margin: 0 auto;
 }
 
 body {
-	background: radial-gradient(179.23% 78.82% at 0% 0%, hsl(243, 12%, 50%) 0%, hsl(257, 21%, 29%) 100%);
+	background: url(../img/bg-noise-200-dark.png) repeat top left,
+		radial-gradient(179.23% 78.82% at 0% 0%, var(--brand-light) 0%, var(--brand-dark) 100%);
+	background-repeat: repeat, no-repeat;
+	background-size: auto, 100vw 100vh;
+	background-attachment: scroll, fixed;
 	margin: 0;
 	display: flex;
-	min-width: 320px;
 	min-height: 100vh;
 }
