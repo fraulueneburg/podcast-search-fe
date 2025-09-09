@@ -131,13 +131,38 @@ ul[class*='list-'] {
 	}
 
 	.ep-desc {
-		word-break: break-word;
 		margin: 1rem 0;
-		max-height: 105px;
 		overflow: hidden;
+		word-break: break-word;
 
 		* {
 			margin: 0;
+		}
+
+		a {
+			text-decoration: underline;
+			opacity: 0.7;
+		}
+
+		> {
+			p,
+			ul,
+			ol,
+			ul li,
+			ol li {
+				margin-bottom: 0.25rem;
+			}
+		}
+
+		ul,
+		ol {
+			padding-left: 1rem;
+		}
+
+		> strong:has(+ p),
+		> p + strong {
+			display: inline-block;
+			margin-block: 0.75rem 0.25rem;
 		}
 	}
 }

@@ -1,4 +1,6 @@
 import parse from 'html-react-parser'
+import { sanitizeHtml } from '../utils'
+
 import { BookmarkSimpleIcon as IconSaveEpisode, ApplePodcastsLogoIcon as IconApplePodcast } from '@phosphor-icons/react'
 import AudioPlayer from './AudioPlayer'
 
@@ -11,6 +13,7 @@ type EpisodeProps = {
 
 export default function Episode({ data, podcastId }: EpisodeProps) {
 	const { title, description, pubDate, guid, audioURL, image, duration } = data
+
 	return (
 		<>
 			<header>
@@ -21,7 +24,7 @@ export default function Episode({ data, podcastId }: EpisodeProps) {
 				<img src={image || ''} width="60" height="60" alt={image ? title : ''} />
 			</header>
 
-			<div className="ep-desc">{parse(description)}</div>
+			<div className="ep-desc">{parse(sanitizeHtml(description))}</div>
 
 			<footer>
 				<AudioPlayer url={audioURL} />
