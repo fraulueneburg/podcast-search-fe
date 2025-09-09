@@ -1,16 +1,30 @@
 .podcast-details {
 	display: grid;
-	grid-template-columns: auto 1fr;
 	gap: 2rem;
 	margin: 0 0 2rem;
+	justify-items: center;
+	text-align: center;
+
+	@media (max-width: 768px) {
+		font-size: 0.5rem;
+	}
+
+	@media (min-width: 768px) {
+		align-items: flex-start;
+		grid-template-columns: auto 1fr;
+		justify-items: flex-start;
+		text-align: left;
+	}
 
 	h1 {
-		margin: 0 0 1rem;
+		margin: 0 0 0.5rem;
 	}
 
 	.artist-name,
 	.track-count {
-		font-size: 1.75rem;
+		font-size: 2em;
+		line-height: 1.4;
+
 		margin: 0;
 	}
 
