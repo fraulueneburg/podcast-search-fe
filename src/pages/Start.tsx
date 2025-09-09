@@ -1,14 +1,14 @@
 import { useState } from 'react'
-import { useLoaderData } from '@tanstack/react-router'
+// import { useLoaderData } from '@tanstack/react-router'
+// import { searchRoute } from '../routes/routes'
 
 import PodcastSearch from '../components/PodcastSearch'
 import PodcastList from '../components/PodcastList'
-import { searchRoute } from '../routes/routes'
 
-export default function StartPage() {
-	const data = useLoaderData({ from: searchRoute.id })
+export function Start() {
+	// const data = useLoaderData({ from: searchRoute.id })
 
-	console.log('data start', data)
+	// console.log('data start', data)
 
 	const [podcastListData, setPodcastListData] = useState(JSON.parse(sessionStorage.getItem('podcast-list') || '[]'))
 

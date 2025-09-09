@@ -5,7 +5,7 @@ import EpisodeList from '../components/EpisodeList'
 import { useMemo, useState } from 'react'
 import type { EpisodeType } from '../types/episode'
 
-export default function PodcastPage() {
+export function Podcast() {
 	const data = useLoaderData({ from: podcastDetailRoute.id })
 
 	const { artistName, artworkUrl600, collectionId, trackCount, trackName } = data.info
