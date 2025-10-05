@@ -52,10 +52,6 @@ h4 {
 	margin-bottom: 0.5rem;
 }
 
-p:has(br:only-child) {
-	display: none;
-}
-
 a {
 	&,
 	&:hover,

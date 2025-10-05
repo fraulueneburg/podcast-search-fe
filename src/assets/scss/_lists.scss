@@ -116,6 +116,10 @@ ul[class*='list-'] {
 			}
 		}
 
+		.ep-duration {
+			white-space: nowrap;
+		}
+
 		.nav-actions ul {
 			display: flex;
 			gap: 1rem;
