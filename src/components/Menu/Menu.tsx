@@ -22,7 +22,7 @@ function NavLink({ to, label, icon: Icon }: { to: string; label: string; icon: R
 	return (
 		<li>
 			<Link to={to} className={isActive ? 'current' : ''} aria-current={isActive ? 'page' : undefined}>
-				<Icon />
+				<Icon weight="bold" />
 				{label}
 			</Link>
 		</li>
